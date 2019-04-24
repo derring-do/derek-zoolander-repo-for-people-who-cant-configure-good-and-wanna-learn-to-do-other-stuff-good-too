@@ -20,9 +20,11 @@ Contents:
     - [Windows](#windows)
 - [R/RStudio/Shiny](#rrstudioshiny)
     - [Making a new R package](#making-a-new-r-package)
-    - [shinyapps.io](#shinyappsio)
-        - [Configure Python](#configure-python)
+    - [Using Python on shinyapps.io](#using-python-on-shinyappsio)
         - [Errors](#errors-1)
+- [Visual Studio Code](#visual-studio-code)
+    - [Custom default settings](#custom-default-settings)
+    - [Extensions](#extensions)
 
 <!-- /TOC -->
 
@@ -60,6 +62,8 @@ https://forums.adobe.com/thread/2485103
     - Click Send
     - Keep the access_token returned and use in Target API calls in Authorization header `Authorization: Bearer <access_token>`
 
+---
+
 # Docker
 
 ## Setting up Docker on Windows for RSelenium
@@ -77,6 +81,8 @@ https://forums.adobe.com/thread/2485103
     ```
     * probably an OpenVPN issue; fixed by restarting Docker after connecting to VPN (per https://github.com/docker/for-win/issues/573#issuecomment-355240971)
 
+---
+
 # ffmpeg
 
 ## Video to GIF
@@ -89,6 +95,8 @@ https://forums.adobe.com/thread/2485103
 
 ## Trim
 `ffmpeg -i file.mp3 -ss 0 -to 30:00 -c copy file2.mp3` 
+
+---
 
 # Github
 
@@ -162,6 +170,8 @@ git branch -m master
 git push -f origin master
 ```
 
+---
+
 # Public Key Certificates
 
 ## Windows
@@ -182,6 +192,8 @@ https://www.akadia.com/services/ssh_test_certificate.html
     ```
 1. `openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt`
 1. If error `unable to write 'random state'`, then `set RANDFILE=.rnd` and repeat step immediately above
+
+---
 
 # R/RStudio/Shiny
 
@@ -231,9 +243,7 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
   
 6. Make vignettes via `devtools::use_vignette("vignetteTitle")`
 
-## shinyapps.io
-
-### Configure Python
+## Using Python on shinyapps.io
 1. `py_install(c("a", "b", "c"))`
 1. scripts run via py_run_file() will import as usual
 
@@ -247,3 +257,49 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
     stack traceback:  /usr/share/luajit/share/lua/5.1/lapis/application.lua:65: in function 'add_params'       /usr/share/luajit/share/lua/5.1/lapis/application.lua:394: in function 'handler'      /usr/share/luajit/share/lua/5.1/lapis/application.lua:416: in function </usr/share/luajit/share/lua/5.1/lapis/application.lua:412>   [C]: in function 'xpcall' /usr/share/luajit/share/lua/5.1/lapis/application.lua:412: in function 'dispatch'       /usr/share/luajit/share/lua/5.1/lapis/nginx.lua:181: in function 'serve'      access_by_lua(redx.conf:162):1: in function <access_by_lua(redx.conf:162):1>
     ```
     - > The error you are seeing looks like a known issue in third-party software that occurs when certain characters are in the file: https://groups.google.com/forum/#!topic/shiny-discuss/MtnpI2PQw_E. You can try working around it by removing ampersands and other affected characters from the file, per the recommendation in the linked post.
+
+---
+
+# Visual Studio Code
+
+## Custom default settings
+
+```
+{
+    "team.showWelcomeMessage": false,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "window.restoreWindows": "none",
+    "r.rterm.windows": "C:/Program Files/R/R-3.4.3/bin/R.exe",
+    "git.enableSmartCommit": true,
+    "files.eol": "\n",
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.rendererType": "dom"
+}
+
+```
+
+## Extensions
+
+1. List extensions: `code --list-extensions`; outputs command to install:
+    ```
+    code --install-extension ajhyndman.jslint
+    code --install-extension akira6592.l2mdtable
+    code --install-extension AlanWalk.markdown-toc
+    code --install-extension bierner.markdown-preview-github-styles
+    code --install-extension bradgashler.htmltagwrap
+    code --install-extension chintans98.markdown-jira
+    code --install-extension darkriszty.markdown-table-prettify
+    code --install-extension dbaeumer.jshint
+    code --install-extension formulahendry.code-runner
+    code --install-extension GrapeCity.gc-excelviewer
+    code --install-extension HookyQR.beautify
+    code --install-extension HookyQR.minify
+    code --install-extension Ikuyadeu.r
+    code --install-extension KnisterPeter.vscode-github
+    code --install-extension ms-python.python
+    code --install-extension ms-vsts.team
+    code --install-extension tht13.html-preview-vscode
+    code --install-extension transnano.markdown-jira-preview
+    code --install-extension Tyriar.vscode-terminal-here
+    code --install-extension ue.alphabetical-sorter
+    ```
