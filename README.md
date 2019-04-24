@@ -19,6 +19,7 @@ Contents:
 - [Public Key Certificates](#public-key-certificates)
     - [Windows](#windows)
 - [R/RStudio/Shiny](#rrstudioshiny)
+    - [RStudio Addins and Bindings](#rstudio-addins-and-bindings)
     - [Making a new R package](#making-a-new-r-package)
     - [Using Python on shinyapps.io](#using-python-on-shinyappsio)
         - [Errors](#errors-1)
@@ -197,9 +198,34 @@ https://www.akadia.com/services/ssh_test_certificate.html
 
 # R/RStudio/Shiny
 
+## RStudio Addins and Bindings
+
+Drop these in `~/.R/rstudio/keybindings/`:
+- addins.json: 
+
+    ```
+    {
+    "terminalHere::terminalHere" : "Ctrl+T"
+    }
+    ```
+- rstudio_bindings.json:
+
+    ```
+    {
+    "activateConsole" : "Shift+CapsLock Shift+CapsLock",
+    "activateConsolePane" : "",
+    "activateSource" : "",
+    "activateTerminal" : "Shift+Tab",
+    "executeCode" : "Ctrl+R",
+    "insertRoxygenSkeleton" : "Ctrl+Shift+O",
+    "renameInScope" : "Shift+F2",
+    "setWorkingDirToActiveDoc" : "Ctrl+W",
+    "switchFocusSourceConsole" : ""
+    }
+    ```
+
 ## Making a new R package
 http://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html
-
 
 1. Generate skeleton
     ```
