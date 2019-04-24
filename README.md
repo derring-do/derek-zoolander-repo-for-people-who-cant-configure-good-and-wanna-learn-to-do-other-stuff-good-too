@@ -1,4 +1,4 @@
-<h1>Misc Config Notes</h1>
+<h1>Derek Zoolander Repo for People Who Can't Configure Good and Wanna Learn to Do Other Stuff Good, Too</h1>
 
 Contents:
 <!-- TOC -->
