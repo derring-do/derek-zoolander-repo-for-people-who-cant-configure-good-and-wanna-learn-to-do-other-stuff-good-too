@@ -1,0 +1,111 @@
+---
+title: "ggplotly + tab navigator"
+date: "9/20/2018"
+output: html_document
+---
+
+<script>
+
+function goBackward() {
+  let previous = Array.from(document.querySelectorAll(".tabnav > ul.nav > li")).indexOf(document.querySelector(".tabnav > ul.nav > li.active"))-1;
+  document.querySelectorAll(".tabnav > ul.nav > li > a")[previous].click()
+};
+
+function goForward() {
+  document.querySelector(".tabnav > ul.nav > li.active + li > a").click();
+};
+
+</script>
+
+<style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.nav-arrow { font-size: 30px; background: #C82505; color: white; cursor: pointer; display: block; text-align: center }
+</style>
+
+For when you don't want the whole thing to be slidified
+
+# Project Name {.tabset}
+## Summary
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+## QA Checklist 
+1. asdf
+2. asdf
+3. asdf
+4. asdf
+
+## Code Review
+```
+<script>
+
+function goBackward() {
+  let previous = Array.from(document.querySelectorAll(".tabnav > ul.nav > li")).indexOf(document.querySelector(".tabnav > ul.nav > li.active"))-1;
+  document.querySelectorAll(".tabnav > ul.nav > li > a")[previous].click()
+};
+
+function goForward() {
+  document.querySelector(".tabnav > ul.nav > li.active + li > a").click();
+};
+
+</script>
+
+<style>
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.nav-arrow { font-size: 30px; background: #C82505; color: white; cursor: pointer; display: block; text-align: center }
+</style>
+```
+
+## Results {.tabset .tabnav}
+<div style="width: 100% !important;">
+<span class="nav-arrow noselect" style="float:left; width: 50%;" onclick="goBackward()"><</span>
+<span class="nav-arrow noselect" onclick="goForward()">></span>
+</div>
+
+### `r n <- 1; n` 
+As you can see here, the results speak for themselves. 
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+library(plotly); library(ggplot2); library(dplyr); knitr::opts_chunk$set(out.width = "100%")
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
