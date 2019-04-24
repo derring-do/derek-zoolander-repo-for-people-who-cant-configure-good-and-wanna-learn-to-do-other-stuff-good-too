@@ -178,7 +178,7 @@ git push -f origin master
 https://www.akadia.com/services/ssh_test_certificate.html
 
 1. Install openssh via Cygwin
-1. `openssl genrsa -des3 -out server.key 1024`; will result in: `Generating RSA private key, 1024 bit long modulus`
+1. `openssl gen rsa -des3 -out server.key 1024`; will result in: `Generating RSA private key, 1024 bit long modulus`
 1. `openssl req -new -key server.key -out server.csr`; will result in:
 
     ```
