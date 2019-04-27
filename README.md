@@ -26,6 +26,7 @@ Contents:
 - [Visual Studio Code](#visual-studio-code)
     - [Custom default settings](#custom-default-settings)
     - [Extensions](#extensions)
+    - [Snippets](#snippets)
 
 <!-- /TOC -->
 
@@ -329,3 +330,8 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
     code --install-extension Tyriar.vscode-terminal-here
     code --install-extension ue.alphabetical-sorter
     ```
+
+## Snippets
+https://snippet-generator.app/
+
+See [snippets.code-snippets](snippets.code-snippets)
