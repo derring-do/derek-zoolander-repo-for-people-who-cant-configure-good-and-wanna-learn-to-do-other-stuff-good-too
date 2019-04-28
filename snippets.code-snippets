@@ -17,12 +17,10 @@
 	// }
 
 	  "bookmarklet": {
-		"scope": "javascript",
+		"scope": "javascript, markdown",
 		"prefix": "javascript bookmarklet",
 		"body": [
-		  "javascript:(function(){",
-			"\t${TM_SELECTED_TEXT:${1:type_here}}$0",
-			"})();"
+		  "javascript:(function(){${TM_SELECTED_TEXT:${1:type_here}}$0})();"
 		],
 		"description": "javascript bookmarklet"
 	  }
