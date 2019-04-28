@@ -18,10 +18,10 @@
 
 	  "bookmarklet": {
 		"scope": "javascript",
-		"prefix": "javascript",
+		"prefix": "javascript bookmarklet",
 		"body": [
 		  "javascript:(function(){",
-			"\t$0",
+			"\t${TM_SELECTED_TEXT:${1:type_here}}$0",
 			"})();"
 		],
 		"description": "javascript bookmarklet"
