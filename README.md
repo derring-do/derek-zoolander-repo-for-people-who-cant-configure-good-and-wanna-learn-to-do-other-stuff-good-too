@@ -27,6 +27,8 @@ Contents:
     - [Custom default settings](#custom-default-settings)
     - [Extensions](#extensions)
     - [Snippets](#snippets)
+- [Windows Shell](#windows-shell)
+    - [File name gsub](#file-name-gsub)
 
 <!-- /TOC -->
 
@@ -335,3 +337,10 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
 https://snippet-generator.app/
 
 See [snippets.code-snippets](snippets.code-snippets)
+
+# Windows Shell
+
+## File name gsub
+```powershell
+get-childitem *(asdf)* | foreach {rename-item $_ $_.Name.Replace("(asdf)", "")}
+```
