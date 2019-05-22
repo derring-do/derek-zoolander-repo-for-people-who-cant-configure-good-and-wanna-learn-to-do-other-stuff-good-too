@@ -100,6 +100,10 @@ https://forums.adobe.com/thread/2485103
 ## Trim
 `ffmpeg -i file.mp3 -ss 0 -to 30:00 -c copy file2.mp3` 
 
+
+## Images to GIF, no loop, overwrite
+ffmpeg -y -i %05d.png -loop -1 output.gif
+
 ---
 
 # Github
