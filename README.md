@@ -293,54 +293,10 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
 
 ---
 
-# Visual Studio Code
+# Visual Studio Code (VSCODE)
 
-## Custom default settings
-
-```
-{
-    "team.showWelcomeMessage": false,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-    "window.restoreWindows": "none",
-    "r.rterm.windows": "C:/Program Files/R/R-3.4.3/bin/R.exe",
-    "git.enableSmartCommit": true,
-    "files.eol": "\n",
-    "breadcrumbs.enabled": true,
-    "terminal.integrated.rendererType": "dom"
-}
-
-```
-
-## Extensions
-
-1. List extensions: `code --list-extensions`; outputs command to install:
-    ```
-    code --install-extension ajhyndman.jslint
-    code --install-extension akira6592.l2mdtable
-    code --install-extension AlanWalk.markdown-toc
-    code --install-extension bierner.markdown-preview-github-styles
-    code --install-extension bradgashler.htmltagwrap
-    code --install-extension chintans98.markdown-jira
-    code --install-extension darkriszty.markdown-table-prettify
-    code --install-extension dbaeumer.jshint
-    code --install-extension formulahendry.code-runner
-    code --install-extension GrapeCity.gc-excelviewer
-    code --install-extension HookyQR.beautify
-    code --install-extension HookyQR.minify
-    code --install-extension Ikuyadeu.r
-    code --install-extension KnisterPeter.vscode-github
-    code --install-extension ms-python.python
-    code --install-extension ms-vsts.team
-    code --install-extension tht13.html-preview-vscode
-    code --install-extension transnano.markdown-jira-preview
-    code --install-extension Tyriar.vscode-terminal-here
-    code --install-extension ue.alphabetical-sorter
-    ```
-
-## Snippets
-https://snippet-generator.app/
-
-See [snippets.code-snippets](snippets.code-snippets)
+Snippets, keybindings, extensions, and settings: https://gist.github.com/derring-do/cab590659d69f6b8cd33067d541167f8
+Also: https://snippet-generator.app/
 
 # Windows Shell
 
