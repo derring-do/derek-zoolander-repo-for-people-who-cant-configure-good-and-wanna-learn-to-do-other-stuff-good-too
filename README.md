@@ -1,6 +1,5 @@
 <h1>Derek Zoolander Repo for People Who Can't Configure Good and Wanna Learn to Do Other Stuff Good, Too</h1>
 
-Contents:
 <!-- TOC -->
 
 - [Adobe I/O](#adobe-io)
@@ -12,6 +11,7 @@ Contents:
     - [Video to GIF](#video-to-gif)
     - [Video to smaller video](#video-to-smaller-video)
     - [Trim](#trim)
+    - [Images to GIF, no loop, overwrite](#images-to-gif-no-loop-overwrite)
 - [Github](#github)
     - [Manage multiple Github accounts on one machine](#manage-multiple-github-accounts-on-one-machine)
         - [Troubleshooting](#troubleshooting)
@@ -23,10 +23,7 @@ Contents:
     - [Making a new R package](#making-a-new-r-package)
     - [Using Python on shinyapps.io](#using-python-on-shinyappsio)
         - [Errors](#errors-1)
-- [Visual Studio Code](#visual-studio-code)
-    - [Custom default settings](#custom-default-settings)
-    - [Extensions](#extensions)
-    - [Snippets](#snippets)
+- [Visual Studio Code (VSCODE)](#visual-studio-code-vscode)
 - [Windows Shell](#windows-shell)
     - [File name gsub](#file-name-gsub)
 
