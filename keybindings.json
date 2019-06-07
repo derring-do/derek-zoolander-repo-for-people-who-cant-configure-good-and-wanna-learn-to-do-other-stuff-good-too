@@ -1,25 +1,34 @@
 // Place your key bindings in this file to overwrite the defaults
-// git bash
+// git bash 
 [
     {
         "key": "ctrl+t",
         "command": "terminalHere.create"
     },
     { 
-        "key": "ctrl+k",
+        "key": "ctrl+space",
         "when": "editorFocus",
         "command": "workbench.action.terminal.clear",
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+space",
         "when": "terminalFocus",
         "command": "workbench.action.terminal.kill" 
-    }
+    },
     {
         "key": "ctrl+g",
         "command": "workbench.action.terminal.sendSequence",
         "args": { 
                 "text": "git add . && git commit -m 'm' && git push -f \u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D",
             }
+    },
+    {
+        "key":"ctrl+d",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { 
+                "text": "git config user.email asdf",
+            }
     }
 ]
+
+
