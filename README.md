@@ -276,7 +276,7 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
 
 7. roxygen formatting snippets:
     - `\dontrun{stuff to display but not run}`
-    - `\dontshow{invisible(readline(prompt="Press [enter] to continue"))}
+    - `\dontshow{invisible(readline(prompt="Press [enter] to continue"))}`
     - line break: `\cr`
 
 ## Using Python on shinyapps.io
