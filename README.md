@@ -267,9 +267,8 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
     + `roxygen2::roxygenise()` just sources all files in the R/ directory
     + `devtools::document()` sources all files in the R/ directory, compiles source code in the src/ directory, loads data in the data/ directory and generally does an accurate job of simulating package loading.
 
-5. Test/use package
-    1. `devtools::load_all()` to load into memory for current session
-    2. `devtools::install(); library("packageName") ` to install and load
+5. Iterate and update without having to restart session manually:
+    `devtools::document(); devtools::install(); .rs.restartR(); library()`
   
 6. Make vignettes via `devtools::use_vignette("vignetteTitle")`
 
