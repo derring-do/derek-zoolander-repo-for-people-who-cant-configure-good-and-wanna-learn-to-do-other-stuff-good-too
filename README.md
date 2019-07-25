@@ -269,7 +269,7 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
 
 5. Iterate and update without having to restart session manually:
     ```
-    devtools::document(); devtools::install(); .rs.restartR(); library()
+   devtools::document(); devtools::install(); .rs.restartR(); library(basename(dirname(getwd())))
     ```
   
 6. Make vignettes via `devtools::use_vignette("vignetteTitle")`
