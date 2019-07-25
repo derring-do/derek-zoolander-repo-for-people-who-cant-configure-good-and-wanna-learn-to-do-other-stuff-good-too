@@ -274,6 +274,11 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
   
 6. Make vignettes via `devtools::use_vignette("vignetteTitle")`
 
+7. roxygen formatting snippets:
+    - `\dontrun{stuff to display but not run}`
+    - `\dontshow{invisible(readline(prompt="Press [enter] to continue"))}
+    - line break: `\cr`
+
 ## Using Python on shinyapps.io
 1. `py_install(c("a", "b", "c"))`
 1. scripts run via py_run_file() will import as usual
