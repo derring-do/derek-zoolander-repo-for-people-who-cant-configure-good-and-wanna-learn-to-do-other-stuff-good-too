@@ -311,9 +311,16 @@ Per https://cran.r-project.org/web/packages/roxygen2/README.html:
 Snippets, keybindings, extensions, and settings: https://gist.github.com/derring-do/cab590659d69f6b8cd33067d541167f8
 Also: https://snippet-generator.app/
 
-# Windows Shell
+# Windows shell
 
-## File name gsub
 ```powershell
+# rename files with pattern replacement
 get-childitem *(asdf)* | foreach {rename-item $_ $_.Name.Replace("(asdf)", "")}
+
+# open URL in various browsers
+SET url="https://google.com" & chrome.exe %url% & firefox.exe %url% & start microsoft-edge:%url% & iexplore %url% & brave %url%
+
+# output file directory to file
+tree /f /a > _contents.txt
 ```
+
