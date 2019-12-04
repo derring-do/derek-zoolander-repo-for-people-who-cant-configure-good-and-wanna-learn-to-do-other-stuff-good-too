@@ -21,7 +21,6 @@
         - [Errors](#errors-1)
 - [Visual Studio Code (VSCODE)](#visual-studio-code-vscode)
 - [Windows Shell](#windows-shell)
-    - [File name gsub](#file-name-gsub)
 
 <!-- /TOC -->
 
