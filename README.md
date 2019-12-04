@@ -12,6 +12,7 @@
     - [Video to smaller video](#video-to-smaller-video)
     - [Trim](#trim)
     - [Images to GIF, no loop, overwrite](#images-to-gif-no-loop-overwrite)
+    - [Misc](#misc)
 - [Github](#github)
     - [Manage multiple Github accounts on one machine](#manage-multiple-github-accounts-on-one-machine)
         - [Troubleshooting](#troubleshooting)
@@ -104,17 +105,29 @@ ffmpeg -y -i %05d.png -loop -1 output.gif
 ## Misc
 
 `ffmpeg -f gdigrab -show_region 1 -i desktop -vcodec libx264 YOUR_NAME_HERE.mp4 -y`
+
 `ffmpeg -f gdigrab -i title= -vcodec libx264 YOUR_NAME_HERE.mp4`
+
 `ffmpeg -i *.png output.gif`
+
 `ffmpeg -i %10d.%05d.png output.gif`
+
 `ffmpeg -i %02d.png output.gif`
+
 `ffmpeg -y -i %05d.png -loop -1 output.gif`
+
 `ffmpeg -f image2 -i *.png video.avi`
+
 `ffmpeg  -pattern_type glob  -i *.png -f image2 video.mp4`
+
 `ffmpeg -framerate 30 -pattern_type glob -i "*.png" -vf scale=1280:-1,format=yuv420p output.mp4`
+
 `ffmpeg  -pattern_type glob -i '*.png' gif.gif`
+
 `ffmpeg -i demo.mp4 -f gif -s 1920x1080 gif.gif`
+
 `ffmpeg -i video.mp4 -vf "scale=iw/2:ih/1.5" smaller.mp4`
+
 `ffmpeg -i file.mkv -ss 20 -to 40 -c copy file-2.mkv`
 
 ---
