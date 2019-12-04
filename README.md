@@ -81,7 +81,7 @@ https://forums.adobe.com/thread/2485103
 
 # ffmpeg
 
-```
+```powershell
 # Video to GIF
 ffmpeg -i video.mp4 -f gif gif.gif
 ffmpeg -i video.mp4 -f gif -s 1920x1080 gif.gif
