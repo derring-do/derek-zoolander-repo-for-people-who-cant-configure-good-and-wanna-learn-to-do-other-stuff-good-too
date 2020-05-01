@@ -89,6 +89,14 @@ ffmpeg -i video.mp4 -f gif -s 1920x1080 gif.gif
 # Video to smaller video
 ffmpeg -i video.mp4 -vf "scale=iw/2:ih/1.5" smaller.mp4
 
+# Video to faster GIF (or whatever output)
+ffmpeg -i video.mp4 -filter:v "setpts=.50*PTS" fast.gif
+ffmpeg -i video.mp4 -filter:v "setpts=.25*PTS" faster.gif
+ffmpeg -i video.mp4 -filter:v "setpts=.10*PTS" fastest.gif
+
+# Video to smaller video
+ffmpeg -i video.mp4 -vf "scale=iw/2:ih/1.5" smaller.mp4
+
 # Trim
 ffmpeg -i file.mp3 -ss 0 -to 30:00 -c copy file2.mp3
 
