@@ -42,8 +42,10 @@ ul.tocify-header {padding-left: 1rem;}
 .nav-tabs {padding-top: 1rem;}
 
 /* diagrammer/mermaid */
-.DiagrammeR {height: unset !important;}
+/* .DiagrammeR {height: unset !important;}
 .mermaid .node rect, .node circle, .node ellipse, .node polygon {fill: #ebf0f0; stroke: #abafb0;}
+*/
+
 summary {padding: 1rem; border: 1px solid #abafb0;}
 
 /* slide stuff */
@@ -59,7 +61,11 @@ summary {padding: 1rem; border: 1px solid #abafb0;}
 
 .nav-arrow { font-size: 30px; background: #C82505; color: white; cursor: pointer; display: block; text-align: center }
 
+.fixed-height { max-height: 400px !important; overflow: auto; }
+
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.1/mermaid.min.js"></script>
 
 <script>
 function goBackward() {
@@ -77,31 +83,87 @@ function goForward() {
 
 This is my go-to template for work projects. I wanted a notebook with some minimal slide functionality without having to separate/commit whole hog to a separate ioslides output or whatever. Helps maintain flow. 
 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Don't want a dependency of a theme package, just plain ol HTML/CSS/JS
 
-```{r Mermaid, echo=FALSE, warning=FALSE, message=FALSE, fig.align="center"}
-library(DiagrammeR)
-mermaid("
-graph LR
-    A-->B
-    B-->C
-")
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^1]
+
+
+[^1]: footnote
+
+### Plan {.tabset}
+
+#### Flowchart
+```{r, results="asis"}
+htmltools::HTML('
+  <div class="mermaid">
+  graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner);
+  </div>
+  ')
 ```
 
-<style>
-max-height: 400px !important;
-overflow: auto;
-</style>
+
+#### User Journey 
+```{r, results="asis"}
+htmltools::HTML('
+  <div class="mermaid">
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+  </div>
+  ')
+```
+
+#### Sequence Diagram
+```{r, results="asis"}
+htmltools::HTML('
+  <div class="mermaid">
+sequenceDiagram
+    participant John
+    participant Alice
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+  </div>
+  ')
+```
+
+#### Gantt
+Doesn't work
+```{r, results="asis"}
+htmltools::HTML('
+  <div class="mermaid">
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+  </div>
+  ')
+```
+
 
 ## Work {.tabset}
 Can't tabset these
 
+### a {.fixed-height}
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
 t(t(letters))
 ```
 
-### b
+### b {.fixed-height}
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
 letters
@@ -165,3 +227,21 @@ sessionInfo()
 ```
 
 </details>
+
+<style>
+.footnotes hr {display: none;}
+</style>
+
+## Footnotes
+
+<script>
+    var config = {
+        startOnLoad:true,
+        flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+    };
+    mermaid.initialize(config);
+</script>
+
