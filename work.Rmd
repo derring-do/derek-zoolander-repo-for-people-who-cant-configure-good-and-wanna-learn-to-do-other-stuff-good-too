@@ -1,0 +1,167 @@
+---
+params:
+  jira: "HBRA-99"
+  github: "github.com"
+  title: "Are document headers in the form of questions more engaging than statements?"
+  logo_url: "https://hbr.org/resources/css/images/HBR_logo_black.svg"
+  accent_color: "#c82502"
+title: '`r params$title`'
+author: '`r Sys.info()[7]`'
+date: '`r Sys.time()`'
+output: 
+  html_document:
+    code_folding: hide
+    code_download: true
+    df_print: paged
+    keep_md: true
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
+---
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+body {font-family: "Source Sans Pro", sans-serif !important;}
+h1, h2, h3, h4, h5 {font-weight: 700 !important; padding-top: 2rem;}
+a {color: `r params$accent_color`}
+.author, .date {padding-top: 1rem;}
+.main-container{max-width: 85% !important;}
+
+/* ---- TOC ---- */
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: `r params$accent_color`; border-color: `r params$accent_color`; margin-left: -2rem; padding-left: 2rem;}
+.tocify, .nav-tabs > li > a {webkit-border-radius: unset; moz-border-radius: unset; border-radius: unset;}
+.tocify::before {background-image: url(`r params$logo_url`); padding: 2rem; display: inline-block; content: ""; width: 100%; height: 100px; background-size: 150px; background-position: center; background-repeat: no-repeat;}
+.tocify:nth-child(1) ul:nth-child(1)::before {content: "`r params$title`"; padding-left: .25rem; display: inline-block;}
+.tocify ul li:first-of-type {margin-top: 1rem;}
+.tocify {padding-top: 2rem; padding-bottom: 2rem;}
+.tocify-header {text-indent: unset !important; padding-left: 2rem;}
+ul.tocify-header {padding-left: 1rem;}
+#tocify-header0 {padding-top: 2rem;}
+.nav-tabs {padding-top: 1rem;}
+
+/* diagrammer/mermaid */
+.DiagrammeR {height: unset !important;}
+.mermaid .node rect, .node circle, .node ellipse, .node polygon {fill: #ebf0f0; stroke: #abafb0;}
+summary {padding: 1rem; border: 1px solid #abafb0;}
+
+/* slide stuff */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.nav-arrow { font-size: 30px; background: #C82505; color: white; cursor: pointer; display: block; text-align: center }
+
+</style>
+
+<script>
+function goBackward() {
+  let previous = Array.from(document.querySelectorAll(".tabnav > ul.nav > li")).indexOf(document.querySelector(".tabnav > ul.nav > li.active"))-1;
+  document.querySelectorAll(".tabnav > ul.nav > li > a")[previous].click()
+};
+
+function goForward() {
+  document.querySelector(".tabnav > ul.nav > li.active + li > a").click();
+};
+</script>
+
+
+## Background
+
+This is my go-to template for work projects. I wanted a notebook with some minimal slide functionality without having to separate/commit whole hog to a separate ioslides output or whatever. Helps maintain flow. 
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```{r Mermaid, echo=FALSE, warning=FALSE, message=FALSE, fig.align="center"}
+library(DiagrammeR)
+mermaid("
+graph LR
+    A-->B
+    B-->C
+")
+```
+
+<style>
+max-height: 400px !important;
+overflow: auto;
+</style>
+
+## Work {.tabset}
+Can't tabset these
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+t(t(letters))
+```
+
+### b
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+letters
+```
+
+
+## Findings/Recommendations {.tabset}
+This section can function as slides if there's not too much to show. To group slides within slides, see Slides
+
+### Revenue is up!
+
+```{r cars, cols.print = 3, rows.print = 5}
+mtcars
+```
+
+### Except on Mars!
+
+```{r pressure, echo=FALSE, out.width="80%"}
+plot(pressure)
+```
+
+
+### Slides {.tabset .tabnav}
+Can't link to these
+
+<div style="width: 100% !important;">
+<span class="nav-arrow noselect" style="float:left; width: 50%;" onclick="goBackward()"><</span>
+<span class="nav-arrow noselect" onclick="goForward()">></span>
+</div>
+
+#### `r n <- 1; n` 
+As you can see here, the results speak for themselves. 
+```{r slide setup, echo=FALSE, warning=FALSE, message=FALSE}
+library(plotly); library(ggplot2); library(dplyr); knitr::opts_chunk$set(out.width = "100%")
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+#### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+#### `r n <- n+1; n`
+As you can see here, the results speak for themselves. 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+```
+
+
+---
+
+## Appendix
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+<details><summary>R Session Info</summary>
+
+```{r}
+sessionInfo()
+```
+
+</details>
