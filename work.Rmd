@@ -2,7 +2,8 @@
 params:
   jira: "HBRA-99"
   github: "github.com"
-  title: "Are document headers in the form of questions more engaging than statements?"
+  confluence: "https://www.atlassian.com/software/confluence"
+  title: "Are titles phrased as questions more engaging than statements?"
   logo_url: "https://hbr.org/resources/css/images/HBR_logo_black.svg"
   accent_color: "#c82502"
 title: '`r params$title`'
@@ -42,9 +43,9 @@ ul.tocify-header {padding-left: 1rem;}
 .nav-tabs {padding-top: 1rem;}
 
 /* diagrammer/mermaid */
-/* .DiagrammeR {height: unset !important;}
+/* .DiagrammeR {height: unset !important;} */
 .mermaid .node rect, .node circle, .node ellipse, .node polygon {fill: #ebf0f0; stroke: #abafb0;}
-*/
+
 
 summary {padding: 1rem; border: 1px solid #abafb0;}
 
@@ -59,24 +60,13 @@ summary {padding: 1rem; border: 1px solid #abafb0;}
                                   supported by Chrome and Opera */
 }
 
-.nav-arrow { font-size: 30px; background: #C82505; color: white; cursor: pointer; display: block; text-align: center }
+.nav-arrow { font-size: 30px; color: `r params$accent_color`; background: white; cursor: pointer; display: block; text-align: center; border-radius: 30px; border: 1px solid lightgrey;}
 
 .fixed-height { max-height: 400px !important; overflow: auto; }
 
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.1/mermaid.min.js"></script>
-
-<script>
-function goBackward() {
-  let previous = Array.from(document.querySelectorAll(".tabnav > ul.nav > li")).indexOf(document.querySelector(".tabnav > ul.nav > li.active"))-1;
-  document.querySelectorAll(".tabnav > ul.nav > li > a")[previous].click()
-};
-
-function goForward() {
-  document.querySelector(".tabnav > ul.nav > li.active + li > a").click();
-};
-</script>
 
 
 ## Background
@@ -92,18 +82,19 @@ Don't want a dependency of a theme package, just plain ol HTML/CSS/JS
 
 ### Plan {.tabset}
 
+Gantt and ER don't work
+
 #### Flowchart
 ```{r, results="asis"}
 htmltools::HTML('
   <div class="mermaid">
   graph LR
       A --- B
-      B-->C[fa:fa-ban forbidden]
-      B-->D(fa:fa-spinner);
+      B-->C
+      B-->D
   </div>
   ')
 ```
-
 
 #### User Journey 
 ```{r, results="asis"}
@@ -135,27 +126,8 @@ sequenceDiagram
   ')
 ```
 
-#### Gantt
-Doesn't work
-```{r, results="asis"}
-htmltools::HTML('
-  <div class="mermaid">
-gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2014-01-01, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2014-01-12  , 12d
-    another task      : 24d
-  </div>
-  ')
-```
-
-
 ## Work {.tabset}
-Can't tabset these
+Data cleaning and stuff
 
 ### a {.fixed-height}
 ```{r}
@@ -171,7 +143,7 @@ letters
 
 
 ## Findings/Recommendations {.tabset}
-This section can function as slides if there's not too much to show. To group slides within slides, see Slides
+This section can function as slides if there's not too much to show. See "Slides" for slides within a tab.
 
 ### Revenue is up!
 
@@ -189,22 +161,38 @@ plot(pressure)
 ### Slides {.tabset .tabnav}
 Can't link to these
 
-<div style="width: 100% !important;">
-<span class="nav-arrow noselect" style="float:left; width: 50%;" onclick="goBackward()"><</span>
-<span class="nav-arrow noselect" onclick="goForward()">></span>
+<div style="width: 100% !important; padding: 1rem;">
+<button class="nav-arrow noselect" style="float:left; width: 50%;" onclick="goBackward()">⟵</button>
+
+<button class="nav-arrow noselect" style="width: 50%;" onclick="goForward()">⟶</button>
+
 </div>
 
 #### `r n <- 1; n` 
 As you can see here, the results speak for themselves. 
 ```{r slide setup, echo=FALSE, warning=FALSE, message=FALSE}
-library(plotly); library(ggplot2); library(dplyr); knitr::opts_chunk$set(out.width = "100%")
-data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+library(plotly); library(ggplot2); library(dplyr); library(glue)
+
+knitr::opts_chunk$set(out.width = "100%")
+
+g <- data.frame(a=1:10, b=sample(1:100, 10)) %>% 
+  { ggplot(., aes(x=a, y=b)) + 
+      geom_point() + 
+      labs(title="My title", subtitle = "Based on data from 2020-01 to 2020-02", caption = "my caption")
+  } 
+
+g 
 ```
 
 #### `r n <- n+1; n`
 As you can see here, the results speak for themselves. 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-data.frame(a=1:10, b=sample(1:100, 10)) %>% { ggplot(., aes(x=a, y=b)) + geom_point()} %>% ggplotly(.)
+ggplotly(g) %>%
+  layout(title = glue("{title}<br><sup>{subtitle}</sup>",
+                      title = g$labels$title,
+                      subtitle = g$labels$subtitle
+                      )                      
+         )
 ```
 
 #### `r n <- n+1; n`
@@ -243,5 +231,15 @@ sessionInfo()
         }
     };
     mermaid.initialize(config);
+    
+function goBackward() {
+  let previous = Array.from(document.querySelectorAll(".tabnav > ul.nav > li")).indexOf(document.querySelector(".tabnav > ul.nav > li.active"))-1;
+  document.querySelectorAll(".tabnav > ul.nav > li > a")[previous].click()
+};
+
+function goForward() {
+  document.querySelector(".tabnav > ul.nav > li.active + li > a").click();
+};
+
 </script>
 
