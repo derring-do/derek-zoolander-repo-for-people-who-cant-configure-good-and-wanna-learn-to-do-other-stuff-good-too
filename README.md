@@ -103,6 +103,14 @@ ffmpeg -i file.mp3 -ss 0 -to 30:00 -c copy file2.mp3
 # Images to GIF, no loop, overwrite
 ffmpeg -y -i %05d.png -loop -1 output.gif
 
+# Stabilize
+## High quality
+ffmpeg -i input.mp4 -vf vidstabdetect -f null -   
+ffmpeg -i input.mp4 -vf vidstabtransform=input="transforms.trf":zoom=1:smoothing=30,unsharp=5:5:0.8:3:3:0.4 -vcodec libx264 -preset slow -tune film -crf 18 -acodec copy "stab.mp4"
+
+## Lower quality
+ffmpeg -i input.mp4 -vf vidstabtransform,unsharp=5:5:.8:3:3:.4 stab2.mp4  
+
 # Misc
 ffmpeg -f gdigrab -show_region 1 -i desktop -vcodec libx264 YOUR_NAME_HERE.mp4 -y
 ffmpeg -f gdigrab -i title= -vcodec libx264 YOUR_NAME_HERE.mp4
