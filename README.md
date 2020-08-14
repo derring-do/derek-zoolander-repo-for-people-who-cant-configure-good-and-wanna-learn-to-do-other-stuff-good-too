@@ -44,7 +44,15 @@ Errors:
 
 1. Tried RHEL8 + micro, error https://forums.centos.org/viewtopic.php?t=72008, can't get powertools
 
-1. 
+1. thing that finally worked (didn't isolate precise issue but these steps got there): 
+
+    1. follow tutorial, pick 30gb + medium
+    1. set putty ssh keepalive to nonzero
+    2. install r
+    3. sudo apt install the libcurl/xml stuff from above
+    3. try shiny, if it fails, install devtools and httpuv manually. see errors above re: those installs. httpuv is what necessitated larger than micro
+    1. try shiny again. some stuff will fail like fonts but should still work
+    1. scale back to micro if app allows
 
 # Adobe I/O 
 
