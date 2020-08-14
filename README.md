@@ -37,6 +37,7 @@ Errors:
 1. auto_ptr error: increasing instance size didn't work: https://github.com/rstudio/shiny/issues/2073
     1. try to install httpuv from github, need devtools
     1. devtools install error: https://github.com/r-lib/devtools/issues/2131
+        1. dependencies not available dt roxygen, those point back to auto_ptr error
     1. r-cran-rcpp error broken packages: https://stackoverflow.com/questions/51256462/r-cannot-install-rjava-what-is-r-api-3-4
 
 # Adobe I/O 
