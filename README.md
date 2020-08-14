@@ -50,9 +50,11 @@ Errors:
     1. set putty ssh keepalive to nonzero
     2. install r
     3. sudo apt install the libcurl/xml stuff from above
-    3. try shiny, if it fails, install devtools and httpuv manually. see errors above re: those installs. httpuv is what necessitated larger than micro
-    1. try shiny again. some stuff will fail like fonts but should still work
+    3. try shiny, if it fails, install devtools and httpuv manually. see errors above re: those installs. httpuv is what necessitated larger than micro. 
+https://github.com/rstudio/httpuv/issues/243
+    1. try shiny again. some stuff will fail like fonts but should still work. 
     1. scale back to micro if app allows
+    1. if you get the LOCK error, unlink(recursive=TRUE) or use INSTALL_opts="--no-lock" (but httpuv and/or shiny require lock)
 
 # Adobe I/O 
 
